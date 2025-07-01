@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход / Регистрация | Лицей №24</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function toggleForm() {
+      document.getElementById('login-form').classList.toggle('hidden');
+      document.getElementById('register-form').classList.toggle('hidden');
+    }
+
+    // Простая проверка логина и пароля
+    document.addEventListener('DOMContentLoaded', function() {
+      var loginForm = document.querySelector('#login-form form');
+      if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var login = loginForm.querySelector('input[type="text"]').value;
+          var pass = loginForm.querySelector('input[type="password"]').value;
+          if (login === 'dolma1ov' && pass === 'zxczxczxc') {
+            localStorage.setItem('isAuth', '1');
+            localStorage.setItem('username', login);
+            window.location.href = 'profile.html';
+          } else {
+            if (!loginForm.querySelector('.text-red-600')) {
+              var err = document.createElement('div');
+              err.className = 'text-red-600 mt-2 text-center';
+              err.textContent = 'Неверный логин или пароль';
+              loginForm.appendChild(err);
+            }
+          }
+        });
+      }
+    });
+  </script>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-blue-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="logo.png" alt="Логотип лицея" class="h-12 w-auto">
+        <span class="hidden sm:inline text-lg md:text-2xl font-bold">Лицей №24 им. А.В. Корявина</span>
+      </a>
+      <nav class="hidden md:flex gap-6 text-lg">
+        <a href="index.html" class="hover:underline transition">Главная</a>
+        <a href="profile.html" class="hover:underline transition">Профиль</a>
+      </nav>
+      <button class="md:hidden focus:outline-none" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-blue-800">
+      <nav class="flex flex-col gap-2 p-4 text-lg">
+        <a href="index.html" class="hover:underline transition">Главная</a>
+        <a href="profile.html" class="hover:underline transition">Профиль</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-1 container mx-auto p-4 flex flex-col items-center justify-center">
+    <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
+      <div id="login-form">
+        <h2 class="text-2xl font-semibold mb-6 text-center">Вход</h2>
+        <form class="space-y-4">
+          <input type="text" placeholder="Логин" class="w-full p-3 border rounded focus:ring-2 focus:ring-blue-400 transition" required>
+          <input type="password" placeholder="Пароль" class="w-full p-3 border rounded focus:ring-2 focus:ring-blue-400 transition" required>
+          <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">Войти</button>
+        </form>
+        <p class="mt-6 text-sm text-center">Нет аккаунта? <button onclick="toggleForm()" class="text-blue-700 underline">Зарегистрироваться</button></p>
+      </div>
+      <div id="register-form" class="hidden">
+        <h2 class="text-2xl font-semibold mb-6 text-center">Регистрация</h2>
+        <form class="space-y-4">
+          <input type="text" placeholder="Логин" class="w-full p-3 border rounded focus:ring-2 focus:ring-green-400 transition" required>
+          <input type="email" placeholder="Email" class="w-full p-3 border rounded focus:ring-2 focus:ring-green-400 transition" required>
+          <input type="password" placeholder="Пароль" class="w-full p-3 border rounded focus:ring-2 focus:ring-green-400 transition" required>
+          <button type="submit" class="w-full bg-green-700 text-white py-2 rounded hover:bg-green-800 transition">Зарегистрироваться</button>
+        </form>
+        <p class="mt-6 text-sm text-center">Уже есть аккаунт? <button onclick="toggleForm()" class="text-blue-700 underline">Войти</button></p>
+      </div>
+    </div>
+  </main>
+  <footer class="bg-blue-900 text-white text-center p-2 mt-auto">
+    &copy; 2025 Лицей №24 имени Героя Советского Союза А.В. Корявина
+  </footer>
+</body>
+</html> 

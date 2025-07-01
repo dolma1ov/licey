@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лицей №24 имени Героя Советского Союза А.В. Корявина</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <header class="bg-blue-900 text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="logo.png" alt="Логотип лицея" class="h-12 w-auto">
+        <span class="hidden sm:inline text-lg md:text-2xl font-bold">Лицей №24 им. А.В. Корявина</span>
+      </a>
+      <nav class="hidden md:flex gap-6 text-lg">
+        <a href="#about" class="hover:underline transition">О лицее</a>
+        <a href="#news" class="hover:underline transition">Новости</a>
+        <a href="#gallery" class="hover:underline transition">Галерея</a>
+        <a href="#schedule" class="hover:underline transition">Расписание</a>
+        <a href="#contacts" class="hover:underline transition">Контакты</a>
+        <a href="profile.html" class="hover:underline transition">Профиль</a>
+        <a href="auth.html" class="hover:underline transition">Вход</a>
+      </nav>
+      <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden bg-blue-800">
+      <nav class="flex flex-col gap-2 p-4 text-lg">
+        <a href="#about" class="hover:underline transition">О лицее</a>
+        <a href="#news" class="hover:underline transition">Новости</a>
+        <a href="#gallery" class="hover:underline transition">Галерея</a>
+        <a href="#schedule" class="hover:underline transition">Расписание</a>
+        <a href="#contacts" class="hover:underline transition">Контакты</a>
+        <a href="profile.html" class="hover:underline transition">Профиль</a>
+        <a href="auth.html" class="hover:underline transition">Вход</a>
+      </nav>
+    </div>
+  </header>
+  <main class="flex-1 container mx-auto px-2 md:px-4 py-6 space-y-12">
+    <!-- Hero -->
+    <section class="text-center py-8">
+      <h2 class="text-2xl md:text-4xl font-bold mb-4">Добро пожаловать в Лицей №24!</h2>
+      <p class="text-gray-700 text-lg md:text-xl">Современное образование, традиции, успехи и развитие для каждого ученика.</p>
+    </section>
+    <!-- О лицее -->
+    <section id="about" class="bg-white rounded-xl shadow p-6 md:p-10">
+      <h3 class="text-xl font-semibold mb-2">О лицее</h3>
+      <p class="mb-2 text-gray-700">Лицей №24 имени Героя Советского Союза А.В. Корявина — современное образовательное учреждение с богатой историей и традициями. Мы гордимся нашими выпускниками и достижениями в учебе, спорте и творчестве.</p>
+      <ul class="list-disc pl-6 text-gray-700 mb-2">
+        <li>Миссия: развитие личности, воспитание патриотизма и стремления к знаниям.</li>
+        <li>Достижения: победы в олимпиадах, спортивных соревнованиях, творческих конкурсах.</li>
+      </ul>
+    </section>
+    <!-- Новости -->
+    <section id="news">
+      <h3 class="text-xl font-semibold mb-4">Новости и события</h3>
+      <ul class="space-y-4">
+        <li class="bg-white rounded shadow p-4 transition hover:scale-[1.02]">
+          <h4 class="font-semibold">01.07.2025 — Начало летних каникул!</h4>
+          <p class="text-gray-700">Поздравляем всех учеников и учителей с окончанием учебного года! Желаем отличного отдыха и ярких впечатлений летом.</p>
+        </li>
+        <li class="bg-white rounded shadow p-4 transition hover:scale-[1.02]">
+          <h4 class="font-semibold">15.06.2025 — Выпускной вечер</h4>
+          <p class="text-gray-700">В лицее прошёл торжественный выпускной для 11-х классов. Поздравляем выпускников и желаем успехов!</p>
+        </li>
+      </ul>
+    </section>
+    <!-- Галерея -->
+    <section id="gallery">
+      <h3 class="text-xl font-semibold mb-4">Галерея</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <img src="https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80" alt="Мероприятие 1" class="rounded-lg shadow hover:scale-105 transition-transform duration-300">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Мероприятие 2" class="rounded-lg shadow hover:scale-105 transition-transform duration-300">
+        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=400&q=80" alt="Класс" class="rounded-lg shadow hover:scale-105 transition-transform duration-300">
+        <img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=400&q=80" alt="Школа" class="rounded-lg shadow hover:scale-105 transition-transform duration-300">
+        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80" alt="Ученики" class="rounded-lg shadow hover:scale-105 transition-transform duration-300">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Событие" class="rounded-lg shadow hover:scale-105 transition-transform duration-300">
+      </div>
+    </section>
+    <!-- Расписание -->
+    <section id="schedule" class="bg-white rounded-xl shadow p-6 md:p-10">
+      <h3 class="text-xl font-semibold mb-4">Расписание уроков</h3>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-lg shadow">
+          <thead>
+            <tr>
+              <th class="py-2 px-4 border-b">Время</th>
+              <th class="py-2 px-4 border-b">Понедельник</th>
+              <th class="py-2 px-4 border-b">Вторник</th>
+              <th class="py-2 px-4 border-b">Среда</th>
+              <th class="py-2 px-4 border-b">Четверг</th>
+              <th class="py-2 px-4 border-b">Пятница</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="py-2 px-4 border-b">8:30 - 9:15</td>
+              <td class="py-2 px-4 border-b">Математика</td>
+              <td class="py-2 px-4 border-b">Русский язык</td>
+              <td class="py-2 px-4 border-b">Литература</td>
+              <td class="py-2 px-4 border-b">История</td>
+              <td class="py-2 px-4 border-b">Физика</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b">9:25 - 10:10</td>
+              <td class="py-2 px-4 border-b">Английский</td>
+              <td class="py-2 px-4 border-b">Математика</td>
+              <td class="py-2 px-4 border-b">Биология</td>
+              <td class="py-2 px-4 border-b">География</td>
+              <td class="py-2 px-4 border-b">Информатика</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-4 border-b">10:20 - 11:05</td>
+              <td class="py-2 px-4 border-b">Физкультура</td>
+              <td class="py-2 px-4 border-b">Химия</td>
+              <td class="py-2 px-4 border-b">Математика</td>
+              <td class="py-2 px-4 border-b">Русский язык</td>
+              <td class="py-2 px-4 border-b">Литература</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- Контакты -->
+    <section id="contacts" class="bg-white rounded-xl shadow p-6 md:p-10">
+      <h3 class="text-xl font-semibold mb-4">Контакты</h3>
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="flex-1 space-y-2">
+          <p class="text-gray-700">Телефон: <a href="tel:+74951234567" class="text-blue-700 underline">+7 (495) 123-45-67</a></p>
+          <p class="text-gray-700">Email: <a href="mailto:info@liceum24.ru" class="text-blue-700 underline">info@liceum24.ru</a></p>
+          <p class="text-gray-700">Координаты: <span class="font-mono">56.248417, 38.118573</span></p>
+          <a href="https://yandex.ru/maps/?ll=38.118573%2C56.248417&z=16" target="_blank" class="text-blue-700 underline">Открыть на карте</a>
+        </div>
+        <form class="flex-1 space-y-4">
+          <input type="text" placeholder="Ваше имя" class="w-full p-2 border rounded" required>
+          <input type="email" placeholder="Ваш email" class="w-full p-2 border rounded" required>
+          <textarea placeholder="Сообщение" class="w-full p-2 border rounded" rows="4" required></textarea>
+          <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">Отправить</button>
+        </form>
+      </div>
+      <div class="mt-6">
+        <iframe src="https://yandex.ru/map-widget/v1/?ll=38.118573%2C56.248417&z=16" width="100%" height="300" class="rounded-lg border w-full md:w-1/2 mx-auto" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-blue-900 text-white text-center p-2 mt-auto">
+    &copy; 2025 Лицей №24 имени Героя Советского Союза А.В. Корявина
+  </footer>
+</body>
+</html> 
