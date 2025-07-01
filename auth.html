@@ -6,34 +6,14 @@
   <title>Вход / Регистрация | Лицей №24</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
-    function toggleForm() {
-      document.getElementById('login-form').classList.toggle('hidden');
-      document.getElementById('register-form').classList.toggle('hidden');
+    function showTab(tab) {
+      document.getElementById('login-form').classList.add('hidden');
+      document.getElementById('register-form').classList.add('hidden');
+      document.getElementById(tab+'-form').classList.remove('hidden');
+      document.getElementById('tab-login').classList.remove('border-blue-700','text-blue-700');
+      document.getElementById('tab-register').classList.remove('border-blue-700','text-blue-700');
+      document.getElementById('tab-'+tab).classList.add('border-blue-700','text-blue-700');
     }
-
-    // Простая проверка логина и пароля
-    document.addEventListener('DOMContentLoaded', function() {
-      var loginForm = document.querySelector('#login-form form');
-      if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var login = loginForm.querySelector('input[type="text"]').value;
-          var pass = loginForm.querySelector('input[type="password"]').value;
-          if (login === 'dolma1ov' && pass === 'zxczxczxc') {
-            localStorage.setItem('isAuth', '1');
-            localStorage.setItem('username', login);
-            window.location.href = 'profile.html';
-          } else {
-            if (!loginForm.querySelector('.text-red-600')) {
-              var err = document.createElement('div');
-              err.className = 'text-red-600 mt-2 text-center';
-              err.textContent = 'Неверный логин или пароль';
-              loginForm.appendChild(err);
-            }
-          }
-        });
-      }
-    });
   </script>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
@@ -60,29 +40,35 @@
   </header>
   <main class="flex-1 container mx-auto p-4 flex flex-col items-center justify-center">
     <div class="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
+      <div class="flex mb-6">
+        <button id="tab-login" onclick="showTab('login')" class="flex-1 py-2 border-b-2 border-blue-700 text-blue-700 font-semibold">Вход</button>
+        <button id="tab-register" onclick="showTab('register')" class="flex-1 py-2 border-b-2 border-transparent text-gray-600 font-semibold">Регистрация</button>
+      </div>
       <div id="login-form">
-        <h2 class="text-2xl font-semibold mb-6 text-center">Вход</h2>
-        <form class="space-y-4">
+        <form onsubmit="event.preventDefault()" class="space-y-4">
           <input type="text" placeholder="Логин" class="w-full p-3 border rounded focus:ring-2 focus:ring-blue-400 transition" required>
           <input type="password" placeholder="Пароль" class="w-full p-3 border rounded focus:ring-2 focus:ring-blue-400 transition" required>
           <button type="submit" class="w-full bg-blue-700 text-white py-2 rounded hover:bg-blue-800 transition">Войти</button>
         </form>
-        <p class="mt-6 text-sm text-center">Нет аккаунта? <button onclick="toggleForm()" class="text-blue-700 underline">Зарегистрироваться</button></p>
+        <p class="mt-6 text-sm text-center">Нет аккаунта? <button onclick="showTab('register')" class="text-blue-700 underline">Зарегистрироваться</button></p>
       </div>
       <div id="register-form" class="hidden">
-        <h2 class="text-2xl font-semibold mb-6 text-center">Регистрация</h2>
-        <form class="space-y-4">
+        <form onsubmit="event.preventDefault()" class="space-y-4">
           <input type="text" placeholder="Логин" class="w-full p-3 border rounded focus:ring-2 focus:ring-green-400 transition" required>
           <input type="email" placeholder="Email" class="w-full p-3 border rounded focus:ring-2 focus:ring-green-400 transition" required>
           <input type="password" placeholder="Пароль" class="w-full p-3 border rounded focus:ring-2 focus:ring-green-400 transition" required>
           <button type="submit" class="w-full bg-green-700 text-white py-2 rounded hover:bg-green-800 transition">Зарегистрироваться</button>
         </form>
-        <p class="mt-6 text-sm text-center">Уже есть аккаунт? <button onclick="toggleForm()" class="text-blue-700 underline">Войти</button></p>
+        <p class="mt-6 text-sm text-center">Уже есть аккаунт? <button onclick="showTab('login')" class="text-blue-700 underline">Войти</button></p>
       </div>
     </div>
   </main>
   <footer class="bg-blue-900 text-white text-center p-2 mt-auto">
     &copy; 2025 Лицей №24 имени Героя Советского Союза А.В. Корявина
   </footer>
+  <script>
+    // По умолчанию показываем форму входа
+    showTab('login');
+  </script>
 </body>
 </html> 
